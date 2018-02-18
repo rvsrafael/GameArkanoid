@@ -5,21 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour {
 
-	void Start () {
-		
-	}
-
-	void OnCollisionEnter2D(Collision2D c){
-		print("passou");
-
-		if(c.gameObject.tag == "gameOver") {
-			SceneManager.LoadScene ("Inicio");
-		}
-
-	}
+	public GameObject gameObjectFim;
+	public GameObject gameObjectGameOver;
 	
 	void Update () {
 
+		gameObjectFim      = GameObject.FindGameObjectWithTag ("bloco");
+		gameObjectGameOver = GameObject.FindGameObjectWithTag ("gameOver");
+
+		if (gameObjectFim == null) {
+			SceneManager.LoadScene ("Inicio");
+		} 
+
+		if( gameObjectGameOver == null ) {
+			SceneManager.LoadScene ("Inicio");
+		} 
 
 	}
 }
